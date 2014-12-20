@@ -1,0 +1,1164 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr" class="devsite">
+  
+
+  <head>
+    
+      <link href="https://developers.google.com/protocol-buffers/docs/javatutorial" rel="canonical">
+    
+    <meta charset="utf-8" />
+    
+      
+    
+    <meta name="xsrf_token" content="mGHKay0Bb0ecnBmmTm_M8DoxNDE4OTY3ODQ4NTc4NDAw" />
+    <script>(function(){function e(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(e){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var f=a?new e(a.responseStart):new e;window.jstiming={Timer:e,load:f};if(a){var c=a.navigationStart,d=a.responseStart;0<c&&d>=c&&(window.jstiming.srt=d-c)}if(a){var b=window.jstiming.load;0<c&&d>=c&&(b.tick("_wtsrt",void 0,c),b.tick("wtsrt_",
+"_wtsrt",d),b.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),b&&0<c&&(b.tick("_tbnd",void 0,window.chrome.csi().startE),b.tick("tbnd_","_tbnd",c))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,b&&0<c&&(b.tick("_tbnd",void 0,window.external.startE),b.tick("tbnd_","_tbnd",c))),a&&(window.jstiming.pt=a)}catch(g){}})();
+</script>
+      <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/2598345234/css/screen-maia.css" />
+      <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,500,500italic,300,300italic' rel='stylesheet' type='text/css'>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/2598345234/css/screen-docs.css" />
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/2598345234/css/screen-foot.css" />
+    
+    <link rel="shortcut icon" href="/_static/2598345234/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/2598345234/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Google Developers" href="/search/opensearch.xml">
+    
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://developers.google.com/_static/2598345234/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <meta property="og:site_name" content="Google Developers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developers.google.com/protocol-buffers/docs/javatutorial">
+  <meta property="og:locale" content="en">
+
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'fr';
+  </script>
+  
+    <title>Protocol Buffer Basics: Java - Protocol Buffers &mdash; Google Developers</title>
+    <meta property="og:title" content="Protocol Buffer Basics: Java">
+  
+  
+
+  
+
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" slim   two-column docs helpouts normal-width">
+  <div class="maia-max">
+
+    
+    <div id="sandbar">
+      
+        
+          
+
+
+
+
+
+<div id="maia-header" class="maia-header">
+  <header id="googlebar">
+    <div id="logo-wrapper">
+      <a id="logo" href="/">
+        <img src="https://developers.google.com/_static/2598345234/images/developers-logo.svg" alt="Google"/>
+      </a>
+      <script>
+      if (navigator.userAgent.match(/msie/i) && navigator.appVersion.indexOf['8'] ==0) {
+        $('#gc-logo img').attr({src:'https://developers.google.com/_static/2598345234/images/developers-logo.png'});
+      }
+      </script>
+    </div>
+
+    <div id="search-wrapper" class="head-sec search-wrapper2 ">
+      <form class="search" action="/search/results" method="GET" id="top-search">
+        <div id="searchbox" class="searchbox">
+           
+           <input type="text" name="q" class="q" id="q" value="" placeholder='Rechercher' autocomplete="off" />
+        </div>
+        <button id="search-button" class="button button-blue big">
+          <img src="/_static/images/v2/search.png" alt="Search">
+        </button>
+        
+          <input type="hidden" name="p" id="search_project" value="/protocol-buffers" data-project-name="Protocol Buffers" data-project-path="/protocol-buffers" data-query-match=""/>
+        
+        
+
+
+  
+  <input type="hidden" id="suggest-category-label-2" value="Pages dans Protocol Buffers" />
+  
+  <input type="hidden" id="suggest-category-label-3" value="Référence dans Protocol Buffers" />
+
+
+<input type="hidden" id="suggest-category-label-1" value="Produits" />
+
+<input type="hidden" id="suggest-all-results-label" value="Afficher les résultats pour" />
+
+      </form>
+    </div>
+
+    
+
+    <div id="social-wrapper" class="social">
+      
+      <span class="signed-in">
+        <div>
+          <a class"email" href="https://plus.google.com/me">corentin.jechoux.pro@gmail.com</a>
+          <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/protocol-buffers/docs/javatutorial&amp;service=ahsid">Déconnexion</a>
+        </div>
+        <img class="avatar" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=40"/>
+      </span>
+      
+    </div>
+  </header>
+</div>
+
+<script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init('fr', true, null, true)
+      }
+      
+    });
+  }
+</script>
+
+        
+      
+    </div><!-- end div.sandbar -->
+    
+
+    
+    <div class="kd-butterbar">
+      <span>
+        <span class="message"></span>
+        
+        <a href="#" class="kd-butterbar-dismiss">Masquer</a>
+      </span>
+    </div>
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" />
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" />
+        
+      
+
+      
+
+      
+
+<div id="gc-appnav" class="maia-aux">
+  <ol class="breadcrumbs">
+    
+    <li><a href="/products/">Produits</a></li>
+    
+    <li><a href="/protocol-buffers/">Protocol Buffers</a></li>
+    
+  </ol>
+</div>
+
+
+
+      
+      
+      
+          <div class="maia-aux" id="gc-appbar">
+
+          
+          
+
+  <a href="/protocol-buffers/" class="gc-appbar-title">
+    
+    Protocol Buffers
+  </a>
+
+
+
+<div class="plusone-container" style="height:27px">
+  <div class="g-plusone"
+    data-href="https://developers.google.com/protocol-buffers/docs/javatutorial"
+    data-size="medium"
+    data-source="google:developers"></div>
+</div>
+
+
+
+  
+
+
+
+<div class="helpouts-container">
+  <a href="https://helpouts.google.com/partner/landing/provider/googledevelopers?utm_source=devsite_pb&utm_medium=banner&utm_campaign=devsite_pb_banner" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="In-Page Helpouts Banner">
+    <img src="/_static/2598345234/images/helpouts-banner.png" alt="Help developers solve problems with Google Helpouts">
+  </a>
+</div>
+
+
+
+
+
+
+
+ 
+
+          
+        </div>
+      
+      
+
+      
+        
+          <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <nav class="gc-toc"><ul><li class=""><span class="tlw-title" data-title="Developer Guide">Developer Guide</span><ul><li class=""><a href="/protocol-buffers/docs/overview" title="Overview" data-title="Overview"><span>Overview</span></a></li><li class=""><a href="/protocol-buffers/docs/proto" title="Language Guide" data-title="Language Guide"><span>Language Guide</span></a></li><li class=""><a href="/protocol-buffers/docs/style" title="Style Guide" data-title="Style Guide"><span>Style Guide</span></a></li><li class=""><a href="/protocol-buffers/docs/encoding" title="Encoding" data-title="Encoding"><span>Encoding</span></a></li><li class=""><a href="/protocol-buffers/docs/tutorials" title="Tutorials" data-title="Tutorials"><span>Tutorials</span></a><ul><li class=""><a href="/protocol-buffers/docs/cpptutorial" title="Basics: C++" data-title="Basics: C++"><span>Basics: C++</span></a></li><li class=""><a href="/protocol-buffers/docs/javatutorial" title="Basics: Java" data-title="Basics: Java"><span>Basics: Java</span></a></li><li class=""><a href="/protocol-buffers/docs/pythontutorial" title="Basics: Python" data-title="Basics: Python"><span>Basics: Python</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/techniques" title="Techniques" data-title="Techniques"><span>Techniques</span></a></li><li class=""><a href="/protocol-buffers/docs/addons" title="Add-ons" data-title="Add-ons"><span>Add-ons</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="API Reference">API Reference</span><ul><li class=""><a href="/protocol-buffers/docs/reference/overview" title="Reference Overview" data-title="Reference Overview"><span>Reference Overview</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp-generated" title="C++ Generated Code" data-title="C++ Generated Code"><span>C++ Generated Code</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/index" title="C++ API" data-title="C++ API"><span>C++ API</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/index#google.protobuf" title="protobuf" data-title="protobuf"><span>protobuf</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor" title="descriptor.h" data-title="descriptor.h"><span>descriptor.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor.pb" title="descriptor.pb.h" data-title="descriptor.pb.h"><span>descriptor.pb.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor_database" title="descriptor_database.h" data-title="descriptor_database.h"><span>descriptor_database.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.dynamic_message" title="dynamic_message.h" data-title="dynamic_message.h"><span>dynamic_message.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.message" title="message.h" data-title="message.h"><span>message.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.message_lite" title="message_lite.h" data-title="message_lite.h"><span>message_lite.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.repeated_field" title="repeated_field.h" data-title="repeated_field.h"><span>repeated_field.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.service" title="service.h" data-title="service.h"><span>service.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.text_format" title="text_format.h" data-title="text_format.h"><span>text_format.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.unknown_field_set" title="unknown_field_set.h" data-title="unknown_field_set.h"><span>unknown_field_set.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.common" title="common.h" data-title="common.h"><span>common.h</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/index#google.protobuf.io" title="protobuf::io" data-title="protobuf::io"><span>protobuf::io</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.coded_stream" title="coded_stream.h" data-title="coded_stream.h"><span>coded_stream.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.gzip_stream" title="gzip_stream.h" data-title="gzip_stream.h"><span>gzip_stream.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.printer" title="printer.h" data-title="printer.h"><span>printer.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.tokenizer" title="tokenizer.h" data-title="tokenizer.h"><span>tokenizer.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream" title="zero_copy_stream.h" data-title="zero_copy_stream.h"><span>zero_copy_stream.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl" title="zero_copy_stream_impl.h" data-title="zero_copy_stream_impl.h"><span>zero_copy_stream_impl.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl_lite" title="zero_copy_stream_impl_lite.h" data-title="zero_copy_stream_impl_lite.h"><span>zero_copy_stream_impl_lite.h</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/index#google.protobuf.compiler" title="protobuf::compiler" data-title="protobuf::compiler"><span>protobuf::compiler</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.code_generator" title="code_generator.h" data-title="code_generator.h"><span>code_generator.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.command_line_interface" title="command_line_interface.h" data-title="command_line_interface.h"><span>command_line_interface.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.importer" title="importer.h" data-title="importer.h"><span>importer.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.parser" title="parser.h" data-title="parser.h"><span>parser.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.plugin" title="plugin.h" data-title="plugin.h"><span>plugin.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.plugin.pb" title="plugin.pb.h" data-title="plugin.pb.h"><span>plugin.pb.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.cpp_generator" title="cpp_generator.h" data-title="cpp_generator.h"><span>cpp_generator.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.java_generator" title="java_generator.h" data-title="java_generator.h"><span>java_generator.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.python_generator" title="python_generator.h" data-title="python_generator.h"><span>python_generator.h</span></a></li></ul></li></ul></li><li class=""><a href="/protocol-buffers/docs/reference/java-generated" title="Java Generated Code" data-title="Java Generated Code"><span>Java Generated Code</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/java/index" title="Java API (javadoc)" data-title="Java API (javadoc)"><span>Java API (javadoc)</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/python-generated" title="Python Generated Code" data-title="Python Generated Code"><span>Python Generated Code</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/python/index" title="Python API (epydoc)" data-title="Python API (epydoc)"><span>Python API (epydoc)</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/other" title="Other Languages and Plugins" data-title="Other Languages and Plugins"><span>Other Languages and Plugins</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/faq" title="FAQ" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="http://groups.google.com/group/protobuf" title="Forum" data-title="Forum"><span>Forum</span></a></li><li class=""><a href="/protocol-buffers/docs/downloads" title="Downloads" data-title="Downloads"><span>Downloads</span></a></li></ul></nav>
+
+
+
+      </div>
+      
+
+      <div id="gc-content"
+           
+           
+           >
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title" >Protocol Buffer Basics: Java</h1>
+  
+  <div itemprop="articleBody">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+<p>This tutorial provides a basic Java programmer's introduction to working with protocol buffers.  By walking through creating a simple example application, it shows you how to
+<ul>
+  <li>Define message formats in a <code>.proto</code> file.
+  <li>Use the protocol buffer compiler.
+  <li>Use the Java protocol buffer API to write and read messages.
+</ul>
+<p>This isn't a comprehensive guide to using protocol buffers in Java.  For more detailed reference information, see the <a href="/protocol-buffers/docs/proto">Protocol Buffer Language Guide</a>, the <a href="/protocol-buffers/docs/reference/java/index.html">Java API Reference</a>, the <a href="/protocol-buffers/docs/reference/java-generated">Java Generated Code Guide</a>, and the <a href="/protocol-buffers/docs/encoding">Encoding Reference</a>.
+
+<!--=========================================================================-->
+<h2>Why Use Protocol Buffers?</h2>
+<p>The example we're going to use is a very simple "address book" application that can read and write people's contact details to and from a file.  Each person in the address book has a name, an ID, an email address, and a contact phone number.
+<p>How do you serialize and retrieve structured data like this? There are a few ways to solve this problem:
+<ul>
+  
+  
+    <li>Use Java Serialization. This is the default approach since it's built into the language, but it has a host of well-known problems (see Effective Java, by Josh Bloch pp. 213), and also doesn't work very well if you need to share data with applications written in C++ or Python.
+  
+  
+  <li>You can invent an ad-hoc way to encode the data items into a single string &#8211; such as encoding 4 ints as "12:3:-23:67". This is a simple and flexible approach, although it does require writing one-off encoding and parsing code, and the parsing imposes a small run-time cost. This works best for encoding very simple data.
+  <li>Serialize the data to XML. This approach can be very attractive since XML is (sort of) human readable and there are binding libraries for lots of languages. This can be a good choice if you want to share data with other applications/projects. However, XML is notoriously space intensive, and encoding/decoding it can impose a huge performance penalty on applications.  Also, navigating an XML DOM tree is considerably more complicated than navigating simple fields in a class normally would be.
+</ul>
+<p>Protocol buffers are the flexible, efficient, automated solution to solve exactly this problem. With protocol buffers, you write a <code>.proto</code> description of the data structure you wish to store. From that, the protocol buffer compiler creates a class that implements automatic encoding and parsing of the protocol buffer data with an efficient binary format. The generated class provides getters and setters for the fields that make up a protocol buffer and takes care of the details of reading and writing the protocol buffer as a unit. Importantly, the protocol buffer format supports the idea of extending the format over time in such a way that the code can still read data encoded with the old format.</p>
+
+<!--=========================================================================-->
+<h2>Where to Find the Example Code</h2>
+<p>The example code is included in the source code package, under the "examples" directory.  <a href="/protocol-buffers/docs/downloads.html">Download it here.</a>
+
+<!--=========================================================================-->
+<h2>Defining Your Protocol Format</h2>
+<p>To create your address book application, you'll need to start with a <code>.proto</code> file. The definitions in a <code>.proto</code> file are simple: you add a <em>message</em> for each data structure you want to serialize, then specify a name and a type for each field in the message.  Here is the <code>.proto</code> file that defines your messages, <code>addressbook.proto</code>.
+<pre>package tutorial;
+
+option java_package = "com.example.tutorial";
+option java_outer_classname = "AddressBookProtos";
+
+message Person {
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    required string number = 1;
+    optional PhoneType type = 2 [default = HOME];
+  }
+
+  repeated PhoneNumber phone = 4;
+}
+
+message AddressBook {
+  repeated Person person = 1;
+}</pre>
+<p>As you can see, the syntax is similar to C++ or Java.  Let's go through each part of the file and see what it does.
+<p>The <code>.proto</code> file starts with a package declaration, which helps to prevent naming conflicts between different projects.
+  
+  In Java, the package name is used as the Java package unless you have explicitly specified a <code>java_package</code>, as we have here.  Even if you do provide a <code>java_package</code>, you should still define a normal <code>package</code> as well to avoid name collisions in the Protocol Buffers name space as well as in non-Java languages.
+  
+
+  <p>After the package declaration, you can see two options that are Java-specific:  <code>java_package</code> and <code>java_outer_classname</code>.  <code>java_package</code> specifies in what Java package name your generated classes should live.  If you don't specify this explicitly, it simply matches the package name given by the <code>package</code> declaration, but these names usually aren't appropriate Java package names (since they usually don't start with a domain name).  The <code>java_outer_classname</code> option defines the class name which should contain all of the classes in this file.  If you don't give a <code>java_outer_classname</code> explicitly, it will be generated by converting the file name to camel case.  For example, "my_proto.proto" would, by default, use "MyProto" as the outer class name.
+
+<p>Next, you have your message definitions.  A message is just an aggregate containing a set of typed fields.  Many standard simple data types are available as field types, including <code>bool</code>, <code>int32</code>, <code>float</code>, <code>double</code>, and <code>string</code>. You can also add further structure to your messages by using other message types as field types &#8211; in the above example the <code>Person</code> message contains <code>PhoneNumber</code> messages, while the <code>AddressBook</code> message contains <code>Person</code> messages.  You can even define message types nested inside other messages &#8211; as you can see, the <code>PhoneNumber</code> type is defined inside <code>Person</code>.  You can also define <code>enum</code> types if you want one of your fields to have one of a predefined list of values &#8211; here you want to specify that a phone number can be one of <code>MOBILE</code>, <code>HOME</code>, or <code>WORK</code>.
+<p>The " = 1", " = 2" markers on each element identify the unique "tag" that field uses in the binary encoding. Tag numbers 1-15 require one less byte to encode than higher numbers, so as an optimization you can decide to use those tags for the commonly used or repeated elements, leaving tags 16 and higher for less-commonly used optional elements.  Each element in a repeated field requires re-encoding the tag number, so repeated fields are particularly good candidates for this optimization.
+<p>Each field must be annotated with one of the following modifiers:
+<ul>
+  <li><code>required</code>: a value for the field must be provided, otherwise the message will be considered "uninitialized".
+    
+    
+      Trying to build an uninitialized message will throw a <code>RuntimeException</code>.  Parsing an uninitialized message will throw an <code>IOException</code>.
+    
+    
+    Other than this, a required field behaves exactly like an optional field.
+  <li><code>optional</code>: the field may or may not be set. If an optional field value isn't set, a default value is used.  For simple types, you can specify your own default value, as we've done for the phone number <code>type</code> in the example.  Otherwise, a system default is used: zero for numeric types, the empty string for strings, false for bools.  For embedded messages, the default value is always the "default instance" or "prototype" of the message, which has none of its fields set.  Calling the accessor to get the value of an optional (or required) field which has not been explicitly set always returns that field's default value.
+  <li><code>repeated</code>: the field may be repeated any number of times (including zero). The order of the repeated values will be preserved in the protocol buffer. Think of repeated fields as dynamically sized arrays.
+</ul>
+
+
+<p class="caution"><strong>Required Is Forever</strong>
+You should be very careful about marking fields as <code>required</code>. If at some point you wish to stop writing or sending a required field, it will be problematic to change the field to an optional field &#8211; old readers will consider messages without this field to be incomplete and may reject or drop them unintentionally. You should consider writing application-specific custom validation routines for your buffers instead.  Some engineers at Google have come to the conclusion that using <code>required</code> does more harm than good; they prefer to use only <code>optional</code> and <code>repeated</code>.  However, this view is not universal.
+
+<p>You'll find a complete guide to writing <code>.proto</code> files &#8211; including all the possible field types &#8211;  in the <a href="/protocol-buffers/docs/proto">Protocol Buffer Language Guide</a>. Don't go looking for facilities similar to class inheritance, though &#8211; protocol buffers don't do that.
+
+<!--=========================================================================-->
+<h2>Compiling Your Protocol Buffers</h2>
+<p>Now that you have a <code>.proto</code>, the next thing you need to do is generate the classes you'll need to read and write <code>AddressBook</code> (and hence <code>Person</code> and <code>PhoneNumber</code>) messages.  To do this, you need to run the protocol buffer compiler <code>protoc</code> on your <code>.proto</code>:
+<ol>
+  <li>If you haven't installed the compiler, <a href="/protocol-buffers/docs/downloads.html">download the package</a> and follow the instructions in the README.
+  <li>Now run the compiler, specifying the source directory (where your application's source code lives &#8211; the current directory is used if you don't provide a value), the destination directory (where you want the generated code to go; often the same as <code>$SRC_DIR</code>), and the path to your <code>.proto</code>.  In this case, you...:
+<pre>protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/addressbook.proto</pre>
+Because you want Java classes, you use the <code>--java_out</code> option &#8211; similar options are provided for other supported languages.
+</ol>
+
+
+  <p>This generates <code>com/example/tutorial/AddressBookProtos.java</code> in your specified destination directory.
+
+
+
+
+<!--=========================================================================-->
+<h2>The Protocol Buffer API</h2>
+
+
+
+
+<p>Let's look at some of the generated code and see what classes and methods the compiler has created for you.  If you look in <code>AddressBookProtos.java</code>, you can see that it defines a class called <code>AddressBookProtos</code>, nested within which is a class for each message you specified in <code>addressbook.proto</code>.  Each class has its own <code>Builder</code> class that you use to create instances of that class.   You can find out more about builders in the <a href="#builders">Builders vs. Messages</a> section below.
+<p>Both messages and builders have auto-generated accessor methods for each field of the message; messages have only getters while builders have both getters and setters.  Here are some of the accessors for the <code>Person</code> class (implementations omitted for brevity):
+
+<pre class="prettyprint">
+// required string name = 1;
+public boolean hasName();
+public String getName();
+
+// required int32 id = 2;
+public boolean hasId();
+public int getId();
+
+// optional string email = 3;
+public boolean hasEmail();
+public String getEmail();
+
+// repeated .tutorial.Person.PhoneNumber phone = 4;
+public List&lt;PhoneNumber&gt; getPhoneList();
+public int getPhoneCount();
+public PhoneNumber getPhone(int index);
+</pre>
+
+<p>Meanwhile, <code>Person.Builder</code> has the same getters plus setters:
+
+<pre class="prettyprint">
+// required string name = 1;
+public boolean hasName();
+public java.lang.String getName();
+public Builder setName(String value);
+public Builder clearName();
+
+// required int32 id = 2;
+public boolean hasId();
+public int getId();
+public Builder setId(int value);
+public Builder clearId();
+
+// optional string email = 3;
+public boolean hasEmail();
+public String getEmail();
+public Builder setEmail(String value);
+public Builder clearEmail();
+
+// repeated .tutorial.Person.PhoneNumber phone = 4;
+public List&lt;PhoneNumber&gt; getPhoneList();
+public int getPhoneCount();
+public PhoneNumber getPhone(int index);
+public Builder setPhone(int index, PhoneNumber value);
+public Builder addPhone(PhoneNumber value);
+public Builder addAllPhone(Iterable&lt;PhoneNumber&gt; value);
+public Builder clearPhone();
+</pre>
+
+<p>As you can see, there are simple JavaBeans-style getters and setters for each field. There are also <code>has</code> getters for each singular field which return true if that field has been set. Finally, each field has a <code>clear</code> method that un-sets the field back to its empty state.
+<p>Repeated fields have some extra methods &#8211; a <code>Count</code> method (which is just shorthand for the list's size), getters and setters which get or set a specific element of the list by index, an <code>add</code> method which appends a new element to the list, and an <code>addAll</code> method which adds an entire container full of elements to the list.
+
+<p>Notice how these accessor methods use camel-case naming, even though the <code>.proto</code> file uses lowercase-with-underscores.  This transformation is done automatically by the protocol buffer compiler so that the generated classes match standard Java style conventions.  You should always use lowercase-with-underscores for field names in your <code>.proto</code> files; this ensures good naming practice in all the generated languages.  See the <a href="/protocol-buffers/docs/style">style guide</a> for more on good <code>.proto</code> style.
+
+
+
+
+<p>For more information on exactly what members the protocol compiler generates for any particular field definition, see the <a href="/protocol-buffers/docs/reference/java-generated">Java generated code reference</a>.
+
+<!--=========================================================================-->
+<h3>Enums and Nested Classes</h3>
+
+
+
+
+<p>The generated code includes a <code>PhoneType</code> Java 5 enum, nested within <code>Person</code>:
+<pre class="prettyprint">
+public static enum PhoneType {
+  MOBILE(0, 0),
+  HOME(1, 1),
+  WORK(2, 2),
+  ;
+  ...
+}
+</pre>
+
+<p>The nested type <code>Person.PhoneNumber</code> is generated, as you'd expect, as a nested class within <code>Person</code>.
+
+
+
+
+<!--=========================================================================-->
+
+<h3 id="builders">Builders vs. Messages</h3>
+
+<p>The message classes generated by the protocol buffer compiler are all <i>immutable</i>.  Once a message object is constructed, it cannot be modified, just like a Java <code>String</code>.  To construct a message, you must first construct a builder, set any fields you want to set to your chosen values, then call the builder's <code>build()</code> method.
+
+<p>You may have noticed that each method of the builder which modifies the message returns another builder.  The returned object is actually the same builder on which you called the method.  It is returned for convenience so that you can string several setters together on a single line of code.
+
+<p>Here's an example of how you would create an instance of <code>Person</code>:
+
+<pre class="prettyprint">
+Person john =
+  Person.newBuilder()
+    .setId(1234)
+    .setName("John Doe")
+    .setEmail("jdoe@example.com")
+    .addPhone(
+      Person.PhoneNumber.newBuilder()
+        .setNumber("555-4321")
+        .setType(Person.PhoneType.HOME))
+    .build();
+</pre>
+
+
+<!--=========================================================================-->
+<h3>Standard Message Methods</h3>
+
+<p>Each message and builder class also contains a number of other methods that let you check or manipulate the entire message, including:
+
+
+
+
+<ul>
+  <li><code>isInitialized()</code>: checks if all the required fields have been set.
+  <li><code>toString()</code>: returns a human-readable representation of the message, particularly useful for debugging.
+  <li><code>mergeFrom(Message other)</code>: (builder only) merges the contents of <code>other</code> into this message, overwriting singular fields and concatenating repeated ones.
+  <li><code>clear()</code>: (builder only) clears all the fields back to the empty state.
+</ul>
+<p>These methods implement the <code>Message</code> and <code>Message.Builder</code> interfaces shared by all Java messages and builders. For more information, see the <a href="/protocol-buffers/docs/reference/java/com/google/protobuf/Message">complete API documentation for <code>Message</code></a>.
+
+
+
+
+<!--=========================================================================-->
+<h3>Parsing and Serialization</h3>
+
+<p>Finally, each protocol buffer class has methods for writing and reading messages of your chosen type using the protocol buffer <a href="/protocol-buffers/docs/encoding">binary format</a>.  These include:
+
+
+
+
+<ul>
+  <li><code>byte[] toByteArray();</code>: serializes the message and returns a byte array containing its raw bytes.
+  <li><code>static Person parseFrom(byte[] data);</code>: parses a message from the given byte array.
+  <li><code>void writeTo(OutputStream output);</code>: serializes the message and writes it to an <code>OutputStream</code>.
+  <li><code>static Person parseFrom(InputStream input);</code>: reads and parses a message from an <code>InputStream</code>.
+</ul>
+<p>These are just a couple of the options provided for parsing and serialization.  Again, see the <a href="/protocol-buffers/docs/reference/java/com/google/protobuf/Message"><code>Message</code> API reference</a> for a complete list.
+
+
+
+
+<p class="caution"><strong>Protocol Buffers and O-O Design</strong> Protocol buffer classes are basically dumb data holders (like structs in C++); they don't make good first class citizens in an object model.  If you want to add richer behaviour to a generated class, the best way to do this is to wrap the generated protocol buffer class in an application-specific class. Wrapping protocol buffers is also a good idea if you don't have control over the design of the <code>.proto</code> file (if, say, you're reusing one from another project). In that case, you can use the wrapper class to craft an interface better suited to the unique environment of your application: hiding some data and methods, exposing convenience functions, etc. <strong>You should never add behaviour to the generated classes by inheriting from them</strong>. This will break internal mechanisms and is not good object-oriented practice anyway.
+
+<!--=========================================================================-->
+<h2>Writing A Message</h2>
+<p>Now let's try using your protocol buffer classes.  The first thing you want your address book application to be able to do is write personal details to your address book file.  To do this, you need to create and populate instances of your protocol buffer classes and then write them to an output stream.
+
+<p>Here is a program which reads an <code>AddressBook</code> from a file, adds one new <code>Person</code> to it based on user input, and writes the new <code>AddressBook</code> back out to the file again.  The parts which directly call or reference code generated by the protocol compiler are highlighted.
+
+
+
+
+<pre class="prettyprint">
+import <span style="background-color:#fafaaa">com.example.tutorial.AddressBookProtos.AddressBook</span>;
+import <span style="background-color:#fafaaa">com.example.tutorial.AddressBookProtos.Person</span>;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.PrintStream;
+
+class AddPerson {
+  // This function fills in a Person message based on user input.
+  static Person PromptForAddress(BufferedReader stdin,
+                                 PrintStream stdout) throws IOException {
+    <span style="background-color:#fafaaa">Person.Builder person = Person.newBuilder()</span>;
+
+    stdout.print("Enter person ID: ");
+    <span style="background-color:#fafaaa">person.setId</span>(Integer.valueOf(stdin.readLine()));
+
+    stdout.print("Enter name: ");
+    <span style="background-color:#fafaaa">person.setName</span>(stdin.readLine());
+
+    stdout.print("Enter email address (blank for none): ");
+    String email = stdin.readLine();
+    if (email.length() &gt; 0) {
+      <span style="background-color:#fafaaa">person.setEmail</span>(email);
+    }
+
+    while (true) {
+      stdout.print("Enter a phone number (or leave blank to finish): ");
+      String number = stdin.readLine();
+      if (number.length() == 0) {
+        break;
+      }
+
+      <span style="background-color:#fafaaa">Person.PhoneNumber.Builder phoneNumber =</span>
+        <span style="background-color:#fafaaa">Person.PhoneNumber.newBuilder().setNumber(number)</span>;
+
+      stdout.print("Is this a mobile, home, or work phone? ");
+      String type = stdin.readLine();
+      if (type.equals("mobile")) {
+        <span style="background-color:#fafaaa">phoneNumber.setType(Person.PhoneType.MOBILE)</span>;
+      } else if (type.equals("home")) {
+        <span style="background-color:#fafaaa">phoneNumber.setType(Person.PhoneType.HOME)</span>;
+      } else if (type.equals("work")) {
+        <span style="background-color:#fafaaa">phoneNumber.setType(Person.PhoneType.WORK)</span>;
+      } else {
+        stdout.println("Unknown phone type.  Using default.");
+      }
+
+      <span style="background-color:#fafaaa">person.addPhone(phoneNumber)</span>;
+    }
+
+    return <span style="background-color:#fafaaa">person.build()</span>;
+  }
+
+  // Main function:  Reads the entire address book from a file,
+  //   adds one person based on user input, then writes it back out to the same
+  //   file.
+  public static void main(String[] args) throws Exception {
+    if (args.length != 1) {
+      System.err.println("Usage:  AddPerson ADDRESS_BOOK_FILE");
+      System.exit(-1);
+    }
+
+    <span style="background-color:#fafaaa">AddressBook.Builder addressBook = AddressBook.newBuilder()</span>;
+
+    // Read the existing address book.
+    try {
+      <span style="background-color:#fafaaa">addressBook.mergeFrom</span>(new FileInputStream(args[0]));
+    } catch (FileNotFoundException e) {
+      System.out.println(args[0] + ": File not found.  Creating a new file.");
+    }
+
+    // Add an address.
+    <span style="background-color:#fafaaa">addressBook.addPerson</span>(
+      PromptForAddress(new BufferedReader(new InputStreamReader(System.in)),
+                       System.out));
+
+    // Write the new address book back to disk.
+    FileOutputStream output = new FileOutputStream(args[0]);
+    <span style="background-color:#fafaaa">addressBook.build().writeTo</span>(output);
+    output.close();
+  }
+}
+</pre>
+
+
+
+
+<!--=========================================================================-->
+<h2>Reading A Message</h2>
+<p>Of course, an address book wouldn't be much use if you couldn't get any information out of it!  This example reads the file created by the above example and prints all the information in it.
+
+
+
+
+<pre class="prettyprint">
+import <span style="background-color:#fafaaa">com.example.tutorial.AddressBookProtos.AddressBook</span>;
+import <span style="background-color:#fafaaa">com.example.tutorial.AddressBookProtos.Person</span>;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+class ListPeople {
+  // Iterates though all people in the AddressBook and prints info about them.
+  static void Print(AddressBook addressBook) {
+    for (Person person: addressBook.getPersonList()) {
+      System.out.println("Person ID: " + <span style="background-color:#fafaaa">person.getId()</span>);
+      System.out.println("  Name: " + <span style="background-color:#fafaaa">person.getName()</span>);
+      if (person.hasEmail()) {
+        System.out.println("  E-mail address: " + <span style="background-color:#fafaaa">person.getEmail()</span>);
+      }
+
+      for (<span style="background-color:#fafaaa">Person.PhoneNumber phoneNumber : person.getPhoneList()</span>) {
+        switch (<span style="background-color:#fafaaa">phoneNumber.getType()</span>) {
+          case <span style="background-color:#fafaaa">MOBILE</span>:
+            System.out.print("  Mobile phone #: ");
+            break;
+          case <span style="background-color:#fafaaa">HOME</span>:
+            System.out.print("  Home phone #: ");
+            break;
+          case <span style="background-color:#fafaaa">WORK</span>:
+            System.out.print("  Work phone #: ");
+            break;
+        }
+        System.out.println(<span style="background-color:#fafaaa">phoneNumber.getNumber()</span>);
+      }
+    }
+  }
+
+  // Main function:  Reads the entire address book from a file and prints all
+  //   the information inside.
+  public static void main(String[] args) throws Exception {
+    if (args.length != 1) {
+      System.err.println("Usage:  ListPeople ADDRESS_BOOK_FILE");
+      System.exit(-1);
+    }
+
+    // Read the existing address book.
+    <span style="background-color:#fafaaa">AddressBook addressBook =</span>
+      <span style="background-color:#fafaaa">AddressBook.parseFrom</span>(new FileInputStream(args[0]));
+
+    Print(addressBook);
+  }
+}
+</pre>
+
+
+
+
+<!--=========================================================================-->
+
+<h2>Extending a Protocol Buffer</h2>
+
+<p>Sooner or later after you release the code that uses your protocol buffer, you will undoubtedly want to "improve" the protocol buffer's definition. If you want your new buffers to be backwards-compatible, and your old buffers to be forward-compatible &#8211; and you almost certainly do want this &#8211; then there are some rules you need to follow. In the new version of the protocol buffer:<ul><li>you <em>must not</em> change the tag numbers of any existing fields.<li>you <em>must not</em> add or delete any required fields.<li>you <em>may</em> delete optional or repeated fields.<li>you <em>may</em> add new optional or repeated fields but you must use fresh tag numbers (i.e. tag numbers that were never used in this protocol buffer, not even by deleted fields).</ul><p>(There are <a href="/protocol-buffers/docs/proto.html#updating">some exceptions</a> to these rules, but they are rarely used.)
+
+<p>If you follow these rules, old code will happily read new messages and simply ignore any new fields. To the old code, optional fields that were deleted will simply have their default value, and deleted repeated fields will be empty. New code will also transparently read old messages. However, keep in mind that new optional fields will not be present in old messages, so you will need to either check explicitly whether they're set with <code>has_</code>, or provide a reasonable default value in your <code>.proto</code> file with <code>[default = value]</code> after the tag number. If the default value is not specified for an optional element, a type-specific default value is used instead: for strings, the default value is the empty string. For booleans, the default value is false. For numeric types, the default value is zero. Note also that if you added a new repeated field, your new code will not be able to tell whether it was left empty (by new code) or never set at all (by old code) since there is no <code>has_</code> flag for it.
+
+<!--=========================================================================-->
+
+
+
+<!--=========================================================================-->
+
+<h2>Advanced Usage</h2>
+
+<p>Protocol buffers have uses that go beyond simple accessors and serialization.  Be sure to explore the <a href="/protocol-buffers/docs/reference/java/index.html">Java API reference</a> to see what else you can do with them.
+
+<p>One key feature provided by protocol message classes is <em>reflection</em>.  You can iterate over the fields of a message and manipulate their values without writing your code against any specific message type.  One very useful way to use reflection is for converting protocol messages to and from other encodings, such as XML or JSON.  A more advanced use of reflection might be to find differences between two messages of the same type, or to develop a sort of "regular expressions for protocol messages" in which you can write expressions that match certain message contents.  If you use your imagination, it's possible to apply Protocol Buffers to a much wider range of problems than you might initially expect!
+<p>
+  
+  
+    Reflection is provided as part of the <a href="/protocol-buffers/docs/reference/java/com/google/protobuf/Message"><code>Message</code></a> and <a href="/protocol-buffers/docs/reference/java/com/google/protobuf/Message.Builder"><code>Message.Builder</code></a> interfaces.
+  
+  
+
+
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Sauf indication contraire, le contenu de cette page est régi par une licence <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>, et les échantillons de code sont régis par une licence <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. Pour plus de détails, consultez nos <a href="/site-policies">règles relatives aux sites</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2014-09-03T22:43:13.985830" id="gc-content-last-updated">Last updated septembre 3, 2014.</div>
+
+</div>
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+      
+        
+          
+        
+      
+
+      
+  
+       <!-- not (if site.theme == 'maia' or site.theme == 'maia-cloud') -->
+      <div id="gc-footer-container">
+        <footer id="gc-footer">
+          
+
+
+
+
+        <div id="maia-footer-local" class="footer-local">
+          <div id="footer-top" class="maia-aux">
+            <div class="footer-top-wrap">
+
+             <div class="search-wrap new_left">
+               <div class="dev-wrap new_left">
+                 <a href="/"><img src="/_static/images/v2/developers-logo.png" /></a>
+               </div>
+               <form class="search new_left" action="/search/results" method="GET" id="footer-search">
+                 <div id="searchbox" class="searchbox new_left">
+                   <input type="text" name="q" class="q" id="q" value="" placeholder="Search" autocomplete="off">
+                 </div>
+                 <button id="search-button" class="button button-blue big new_left">
+                   <img src="/_static/images/v2/search.png" alt="Search">
+                 </button>
+               </form>
+             </div>
+             <div class="plus-wrap new_left">
+               <div class="plus">
+                 <!-- Place this tag where you want the widget to render. -->
+                 <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/111395306401981598462" data-rel="publisher"></div>
+                 <!-- Place this tag after the last widget tag. -->
+                 <script type="text/javascript">
+                   (function() {
+                     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                     po.src = 'https://apis.google.com/js/platform.js';
+                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                   })();
+                 </script>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      <div id="footer-list" class="maia-aux">
+    <div class="footer-list-wrap  maia-cols">
+      <div class="maia-col-3">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/products/">Products</a></li>
+          <li><a href="/showcase/">Showcase</a></li>
+          <li><a href="/events/">Events</a></li>
+          <li><a href="/community/">Communities</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="http://googledevelopers.blogspot.com/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Blog Link">Blog</a></li>
+          <li><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer G+ Link">Google+ Community</a></li>
+          <li><a href="http://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">YouTube Channel</a></li>
+          <li><a class="google-feedback" data-p="81425" data-b="Documentation"  data-v="devsite-20141217-r00-rc00.default" href="">Signaler un problème</a></li>
+          <li><a href="/careers/">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="/groups/">Groups</a></li>
+          <li><a href="/experts/">Experts</a></li>
+          <li><a href="/startups/">Startups</a></li>
+          <li><a href="/women-techmakers/">Women Techmakers</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Top Products</h4>
+        <ul class="top-prod-1 left">
+          <li><a href="/advertise/">Ads</a></li>
+          <li><a href="/analytics/">Analytics</a></li>
+          <li><a href="https://developer.android.com/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Android Link">Android</a></li>
+          <li><a href="/cast/">Cast</a></li>
+          <li><a href="/chrome/">Chrome</a></li>
+          <li><a href="https://cloud.google.com/docs/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">Cloud</a></li>
+        </ul>
+        <ul class="top-prod-2 left">
+          <li><a href="/glass/">Glass</a></li>
+          <li><a href="/google-apps/">Google Apps</a></li>
+          <li><a href="/+/">Google+</a></li>
+          <li><a href="/maps/">Maps</a></li>
+          <li><a href="/commerce/wallet/">Wallet</a></li>
+          <li><a href="/youtube/">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-LOCAL -->
+
+<div id="maia-footer-global" class="footer-global">
+  <div class="maia-aux">
+    <span id="terms">
+      <a href="/site-terms/">Terms of Use</a>
+    </span>
+    <span class="pipe">
+    </span>
+    <span id="privacy">
+      <a href="http://www.google.com/intl/en/privacy/" class="gc-analytics-event"
+      data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy Policy</a>
+    </span>
+
+    
+    <div id="gc-language" class="new_right">
+    <ul>
+      <li>
+        <form id="setlang" action="/i18n/setlang/" method="post">
+          <input type="hidden" name="xsrf_token" value="mGHKay0Bb0ecnBmmTm_M8DoxNDE4OTY3ODQ4NTc4NDAw" />
+          <select id="footer_language" name="language">
+            <option value="ar"
+                >
+                العربيّة
+              </option><option value="bg"
+                >
+                български
+              </option><option value="ca"
+                >
+                català
+              </option><option value="zh-cn"
+                >
+                简体中文
+              </option><option value="zh-tw"
+                >
+                繁體中文
+              </option><option value="hr"
+                >
+                Hrvatski
+              </option><option value="cs"
+                >
+                česky
+              </option><option value="da"
+                >
+                dansk
+              </option><option value="nl"
+                >
+                Nederlands
+              </option><option value="en"
+                >
+                English
+              </option><option value="fa"
+                >
+                فارسی
+              </option><option value="fi"
+                >
+                suomi
+              </option><option value="fr"
+                 selected="selected" >
+                français
+              </option><option value="de"
+                >
+                Deutsch
+              </option><option value="el"
+                >
+                Ελληνικά
+              </option><option value="he"
+                >
+                עברית
+              </option><option value="hi"
+                >
+                Hindi
+              </option><option value="hu"
+                >
+                Magyar
+              </option><option value="id"
+                >
+                Bahasa Indonesia
+              </option><option value="it"
+                >
+                italiano
+              </option><option value="ja"
+                >
+                日本語
+              </option><option value="ko"
+                >
+                한국어
+              </option><option value="lv"
+                >
+                latviešu
+              </option><option value="lt"
+                >
+                Lithuanian
+              </option><option value="nb"
+                >
+                norsk (bokmål)
+              </option><option value="nn"
+                >
+                norsk (nynorsk)
+              </option><option value="pl"
+                >
+                polski
+              </option><option value="pt-br"
+                >
+                Português Brasileiro
+              </option><option value="pt"
+                >
+                Português
+              </option><option value="ro"
+                >
+                Română
+              </option><option value="ru"
+                >
+                Русский
+              </option><option value="sr"
+                >
+                српски
+              </option><option value="sk"
+                >
+                slovenský
+              </option><option value="sl"
+                >
+                Slovenščina
+              </option><option value="es"
+                >
+                español
+              </option><option value="sv"
+                >
+                svenska
+              </option><option value="th"
+                >
+                Thai
+              </option><option value="tr"
+                >
+                Türkçe
+              </option><option value="uk"
+                >
+                Українська
+              </option><option value="vi"
+                >
+                Vietnamese
+              </option>
+          </select>
+        </form>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-GLOBAL -->
+<script src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" async defer></script>
+<script type="text/javascript">
+    // Add the handlers once the document has loaded.
+    $(document).ready(function() {
+      devsite.devsite.handlePlusBadgeResize($('#plusbadge'), $('#homephoto'));
+    });
+  </script>
+
+        </footer>
+      </div>
+      
+      
+  
+
+    </div>
+    <div id="search-autocomplete" class="search-results search-autocomplete" style="display:none"></div>
+    <script type="text/javascript" async="" defer="" src="//www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript" src="https://developers.google.com/_static2/2598345234/jsi18n/?hl=fr"></script>
+    <script src="https://developers.google.com/_static/2598345234/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, 'devsite',
+            '[]', '',
+            'fr', true,
+            '2598345234', 'corentin.jechoux.pro@gmail.com',
+            false);
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if (navigator.userAgent.match(/msie/i)) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl875;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script>
+    <noscript>
+    <iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl875;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    
+
+    <noscript>
+      <div style="display:none;">
+        <img style="display:none;" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+});
+</script>
+<script src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" async defer></script>
+
+
+
+
+  </div><!-- END DIV.MAIA-MAX -->
+  </body>
+
+  
+</html>

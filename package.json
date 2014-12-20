@@ -1,0 +1,21 @@
+{
+  "name": "pb_codec",
+  "version": "0.0.1",
+  "description": "Protocol Buffers encoder / decoder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "protocol",
+    "buffers"
+  ],
+  "author": "corentin.jechoux.pro@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": ">=1.17.0",
+    "chai": ">=1.8.1",
+    "sinon": "1.7.3",
+    "sinon-chai": "2.4.0"
+  }
+}

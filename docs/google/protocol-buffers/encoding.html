@@ -1,0 +1,822 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr" class="devsite">
+  
+
+  <head>
+    
+      <link href="https://developers.google.com/protocol-buffers/docs/encoding" rel="canonical">
+    
+    <meta charset="utf-8" />
+    
+      
+    
+    <meta name="xsrf_token" content="i8LTNGDbAqM7X5Dvzl9xyjoxNDE4OTY3ODIzOTcyNjUw" />
+    <script>(function(){function e(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(e){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var f=a?new e(a.responseStart):new e;window.jstiming={Timer:e,load:f};if(a){var c=a.navigationStart,d=a.responseStart;0<c&&d>=c&&(window.jstiming.srt=d-c)}if(a){var b=window.jstiming.load;0<c&&d>=c&&(b.tick("_wtsrt",void 0,c),b.tick("wtsrt_",
+"_wtsrt",d),b.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),b&&0<c&&(b.tick("_tbnd",void 0,window.chrome.csi().startE),b.tick("tbnd_","_tbnd",c))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,b&&0<c&&(b.tick("_tbnd",void 0,window.external.startE),b.tick("tbnd_","_tbnd",c))),a&&(window.jstiming.pt=a)}catch(g){}})();
+</script>
+      <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/2598345234/css/screen-maia.css" />
+      <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,500,500italic,300,300italic' rel='stylesheet' type='text/css'>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/2598345234/css/screen-docs.css" />
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/2598345234/css/screen-foot.css" />
+    
+    <link rel="shortcut icon" href="/_static/2598345234/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/2598345234/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Google Developers" href="/search/opensearch.xml">
+    
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://developers.google.com/_static/2598345234/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <meta property="og:site_name" content="Google Developers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developers.google.com/protocol-buffers/docs/encoding">
+  <meta property="og:locale" content="en">
+
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'fr';
+  </script>
+  
+    <title>Encoding - Protocol Buffers &mdash; Google Developers</title>
+    <meta property="og:title" content="Encoding">
+  
+  
+
+  
+
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" slim   two-column docs helpouts normal-width">
+  <div class="maia-max">
+
+    
+    <div id="sandbar">
+      
+        
+          
+
+
+
+
+
+<div id="maia-header" class="maia-header">
+  <header id="googlebar">
+    <div id="logo-wrapper">
+      <a id="logo" href="/">
+        <img src="https://developers.google.com/_static/2598345234/images/developers-logo.svg" alt="Google"/>
+      </a>
+      <script>
+      if (navigator.userAgent.match(/msie/i) && navigator.appVersion.indexOf['8'] ==0) {
+        $('#gc-logo img').attr({src:'https://developers.google.com/_static/2598345234/images/developers-logo.png'});
+      }
+      </script>
+    </div>
+
+    <div id="search-wrapper" class="head-sec search-wrapper2 ">
+      <form class="search" action="/search/results" method="GET" id="top-search">
+        <div id="searchbox" class="searchbox">
+           
+           <input type="text" name="q" class="q" id="q" value="" placeholder='Rechercher' autocomplete="off" />
+        </div>
+        <button id="search-button" class="button button-blue big">
+          <img src="/_static/images/v2/search.png" alt="Search">
+        </button>
+        
+          <input type="hidden" name="p" id="search_project" value="/protocol-buffers" data-project-name="Protocol Buffers" data-project-path="/protocol-buffers" data-query-match=""/>
+        
+        
+
+
+  
+  <input type="hidden" id="suggest-category-label-2" value="Pages dans Protocol Buffers" />
+  
+  <input type="hidden" id="suggest-category-label-3" value="Référence dans Protocol Buffers" />
+
+
+<input type="hidden" id="suggest-category-label-1" value="Produits" />
+
+<input type="hidden" id="suggest-all-results-label" value="Afficher les résultats pour" />
+
+      </form>
+    </div>
+
+    
+
+    <div id="social-wrapper" class="social">
+      
+      <span class="signed-in">
+        <div>
+          <a class"email" href="https://plus.google.com/me">corentin.jechoux.pro@gmail.com</a>
+          <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/protocol-buffers/docs/encoding&amp;service=ahsid">Déconnexion</a>
+        </div>
+        <img class="avatar" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=40"/>
+      </span>
+      
+    </div>
+  </header>
+</div>
+
+<script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init('fr', true, null, true)
+      }
+      
+    });
+  }
+</script>
+
+        
+      
+    </div><!-- end div.sandbar -->
+    
+
+    
+    <div class="kd-butterbar">
+      <span>
+        <span class="message"></span>
+        
+        <a href="#" class="kd-butterbar-dismiss">Masquer</a>
+      </span>
+    </div>
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" />
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" />
+        
+      
+
+      
+
+      
+
+<div id="gc-appnav" class="maia-aux">
+  <ol class="breadcrumbs">
+    
+    <li><a href="/products/">Produits</a></li>
+    
+    <li><a href="/protocol-buffers/">Protocol Buffers</a></li>
+    
+  </ol>
+</div>
+
+
+
+      
+      
+      
+          <div class="maia-aux" id="gc-appbar">
+
+          
+          
+
+  <a href="/protocol-buffers/" class="gc-appbar-title">
+    
+    Protocol Buffers
+  </a>
+
+
+
+<div class="plusone-container" style="height:27px">
+  <div class="g-plusone"
+    data-href="https://developers.google.com/protocol-buffers/docs/encoding"
+    data-size="medium"
+    data-source="google:developers"></div>
+</div>
+
+
+
+  
+
+
+
+<div class="helpouts-container">
+  <a href="https://helpouts.google.com/partner/landing/provider/googledevelopers?utm_source=devsite_pb&utm_medium=banner&utm_campaign=devsite_pb_banner" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="In-Page Helpouts Banner">
+    <img src="/_static/2598345234/images/helpouts-banner.png" alt="Help developers solve problems with Google Helpouts">
+  </a>
+</div>
+
+
+
+
+
+
+
+ 
+
+          
+        </div>
+      
+      
+
+      
+        
+          <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <nav class="gc-toc"><ul><li class=""><span class="tlw-title" data-title="Developer Guide">Developer Guide</span><ul><li class=""><a href="/protocol-buffers/docs/overview" title="Overview" data-title="Overview"><span>Overview</span></a></li><li class=""><a href="/protocol-buffers/docs/proto" title="Language Guide" data-title="Language Guide"><span>Language Guide</span></a></li><li class=""><a href="/protocol-buffers/docs/style" title="Style Guide" data-title="Style Guide"><span>Style Guide</span></a></li><li class=""><a href="/protocol-buffers/docs/encoding" title="Encoding" data-title="Encoding"><span>Encoding</span></a></li><li class=""><a href="/protocol-buffers/docs/tutorials" title="Tutorials" data-title="Tutorials"><span>Tutorials</span></a><ul><li class=""><a href="/protocol-buffers/docs/cpptutorial" title="Basics: C++" data-title="Basics: C++"><span>Basics: C++</span></a></li><li class=""><a href="/protocol-buffers/docs/javatutorial" title="Basics: Java" data-title="Basics: Java"><span>Basics: Java</span></a></li><li class=""><a href="/protocol-buffers/docs/pythontutorial" title="Basics: Python" data-title="Basics: Python"><span>Basics: Python</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/techniques" title="Techniques" data-title="Techniques"><span>Techniques</span></a></li><li class=""><a href="/protocol-buffers/docs/addons" title="Add-ons" data-title="Add-ons"><span>Add-ons</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="API Reference">API Reference</span><ul><li class=""><a href="/protocol-buffers/docs/reference/overview" title="Reference Overview" data-title="Reference Overview"><span>Reference Overview</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp-generated" title="C++ Generated Code" data-title="C++ Generated Code"><span>C++ Generated Code</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/index" title="C++ API" data-title="C++ API"><span>C++ API</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/index#google.protobuf" title="protobuf" data-title="protobuf"><span>protobuf</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor" title="descriptor.h" data-title="descriptor.h"><span>descriptor.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor.pb" title="descriptor.pb.h" data-title="descriptor.pb.h"><span>descriptor.pb.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor_database" title="descriptor_database.h" data-title="descriptor_database.h"><span>descriptor_database.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.dynamic_message" title="dynamic_message.h" data-title="dynamic_message.h"><span>dynamic_message.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.message" title="message.h" data-title="message.h"><span>message.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.message_lite" title="message_lite.h" data-title="message_lite.h"><span>message_lite.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.repeated_field" title="repeated_field.h" data-title="repeated_field.h"><span>repeated_field.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.service" title="service.h" data-title="service.h"><span>service.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.text_format" title="text_format.h" data-title="text_format.h"><span>text_format.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.unknown_field_set" title="unknown_field_set.h" data-title="unknown_field_set.h"><span>unknown_field_set.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.common" title="common.h" data-title="common.h"><span>common.h</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/index#google.protobuf.io" title="protobuf::io" data-title="protobuf::io"><span>protobuf::io</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.coded_stream" title="coded_stream.h" data-title="coded_stream.h"><span>coded_stream.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.gzip_stream" title="gzip_stream.h" data-title="gzip_stream.h"><span>gzip_stream.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.printer" title="printer.h" data-title="printer.h"><span>printer.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.tokenizer" title="tokenizer.h" data-title="tokenizer.h"><span>tokenizer.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream" title="zero_copy_stream.h" data-title="zero_copy_stream.h"><span>zero_copy_stream.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl" title="zero_copy_stream_impl.h" data-title="zero_copy_stream_impl.h"><span>zero_copy_stream_impl.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl_lite" title="zero_copy_stream_impl_lite.h" data-title="zero_copy_stream_impl_lite.h"><span>zero_copy_stream_impl_lite.h</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/index#google.protobuf.compiler" title="protobuf::compiler" data-title="protobuf::compiler"><span>protobuf::compiler</span></a><ul><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.code_generator" title="code_generator.h" data-title="code_generator.h"><span>code_generator.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.command_line_interface" title="command_line_interface.h" data-title="command_line_interface.h"><span>command_line_interface.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.importer" title="importer.h" data-title="importer.h"><span>importer.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.parser" title="parser.h" data-title="parser.h"><span>parser.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.plugin" title="plugin.h" data-title="plugin.h"><span>plugin.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.plugin.pb" title="plugin.pb.h" data-title="plugin.pb.h"><span>plugin.pb.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.cpp_generator" title="cpp_generator.h" data-title="cpp_generator.h"><span>cpp_generator.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.java_generator" title="java_generator.h" data-title="java_generator.h"><span>java_generator.h</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/cpp/google.protobuf.compiler.python_generator" title="python_generator.h" data-title="python_generator.h"><span>python_generator.h</span></a></li></ul></li></ul></li><li class=""><a href="/protocol-buffers/docs/reference/java-generated" title="Java Generated Code" data-title="Java Generated Code"><span>Java Generated Code</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/java/index" title="Java API (javadoc)" data-title="Java API (javadoc)"><span>Java API (javadoc)</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/python-generated" title="Python Generated Code" data-title="Python Generated Code"><span>Python Generated Code</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/python/index" title="Python API (epydoc)" data-title="Python API (epydoc)"><span>Python API (epydoc)</span></a></li><li class=""><a href="/protocol-buffers/docs/reference/other" title="Other Languages and Plugins" data-title="Other Languages and Plugins"><span>Other Languages and Plugins</span></a></li></ul></li><li class=""><a href="/protocol-buffers/docs/faq" title="FAQ" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="http://groups.google.com/group/protobuf" title="Forum" data-title="Forum"><span>Forum</span></a></li><li class=""><a href="/protocol-buffers/docs/downloads" title="Downloads" data-title="Downloads"><span>Downloads</span></a></li></ul></nav>
+
+
+
+      </div>
+      
+
+      <div id="gc-content"
+           
+           
+           >
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title" >Encoding</h1>
+  
+  <div itemprop="articleBody">
+  
+
+
+<ul style="list-style-type: none"><li>
+<li><a href="#simple">A Simple Message</a>
+<li><a href="#varints">Base 128 Varints</a>
+<li><a href="#structure">Message Structure</a>
+<li><a href="#types">More Value Types</a>
+<li><a href="#embedded">Embedded Messages</a>
+
+<li><a href="#optional">Optional And Repeated Elements</a>
+<li><a href="#order">Field Order</a>
+</ul>
+<p>This document describes the binary wire format for protocol buffer messages.  You don't need to understand this to use protocol buffers in your applications, but it can be very useful to know how different protocol buffer formats affect the size of your encoded messages.
+<h2 id="simple">A Simple Message</h2>
+<p>Let's say you have the following very simple message definition:
+<pre>message Test1 {
+  required int32 a = 1;
+}</pre>
+<p>In an application, you create a <code>Test1</code> message and set <code>a</code> to 150.  You then serialize the message to an output stream.  If you were able to examine the encoded message, you'd see three bytes:
+<pre>08 96 01</pre>
+<p>So far, so small and numeric &#8211; but what does it mean?  Read on...
+<h2 id="varints">Base 128 Varints</h2>
+<p>To understand your simple protocol buffer encoding, you first need to understand <em>varints</em>.  Varints are a method of serializing integers using one or more bytes.  Smaller numbers take a smaller number of bytes.
+<p>Each byte in a varint, except the last byte, has the <em>most significant bit</em> (msb) set &#8211; this indicates that there are further bytes to come.  The lower 7 bits of each byte are used to store the two's complement representation of the number in groups of 7 bits, <strong>least significant group first</strong>.
+<p>So, for example, here is the number 1 &#8211; it's a single byte, so the msb is not set:
+<pre>0000 0001</pre>
+<p>And here is 300 &#8211; this is a bit more complicated:
+<pre>1010 1100 0000 0010</pre>
+<p>How do you figure out that this is 300?  First you drop the msb from each byte, as this is just there to tell us whether we've reached the end of the number (as you can see, it's set in the first byte as there is more than one byte in the varint):
+<pre>1010 1100 0000 0010
+→ 010 1100  000 0010</pre>
+<p>You reverse the two groups of 7 bits because, as you remember, varints store numbers with the least significant group first.  Then you concatenate them to get your final value:
+<pre>000 0010  010 1100
+→  000 0010 ++ 010 1100
+→  100101100
+→  256 + 32 + 8 + 4 = 300</pre>
+<h2 id="structure">Message Structure</h2>
+<p>As you know, a protocol buffer message is a series of key-value pairs.  The binary version of a message just uses the field's number as the key &#8211; the name and declared type for each field can only be determined on the decoding end by referencing the message type's definition (i.e. the <code>.proto</code> file).
+<p>When a message is encoded, the keys and values are concatenated into a byte stream. When the message is being decoded, the parser needs to be able to skip fields that it doesn't recognize. This way, new fields can be added to a message without breaking old programs that do not know about them. To this end, the "key" for each pair in a wire-format message is actually two values &#8211; the field number from your <code>.proto</code> file, plus a <em>wire type</em> that provides just enough information to find the length of the following value.
+<p>The available wire types are as follows:
+<table width="50%" border=1>
+<tr><th>Type</th><th>Meaning</th><th>Used For</th></tr>
+<tr><td>0</td><td>Varint</td><td>int32, int64, uint32, uint64, sint32, sint64, bool, enum</td><tr>
+<tr><td>1</td><td>64-bit</td><td>fixed64, sfixed64, double</td><tr>
+<tr><td>2</td><td>Length-delimited</td><td>string, bytes, embedded messages, packed repeated fields</td><tr>
+<tr><td>3</td><td>Start group</td><td>groups (deprecated)</td><tr>
+<tr><td>4</td><td>End group</td><td>groups (deprecated)</td><tr>
+<tr><td>5</td><td>32-bit</td><td>fixed32, sfixed32, float</td><tr>
+</table>
+<p>Each key in the streamed message is a varint with the value <code>(field_number << 3) | wire_type</code> &#8211; in other words, the last three bits of the number store the wire type.
+<p>Now let's look at our simple example again.  You now know that the first number in the stream is always a varint key, and here it's 08, or (dropping the msb):
+<pre>000 1000</pre>
+<p>You take the last three bits to get the wire type (0) and then right-shift by three to get the field number (1). So you now know that the tag is 1 and the following value is a varint.  Using your varint-decoding knowledge from the previous section, you can see that the next two bytes store the value 150.
+<pre>96 01 = 1001 0110  0000 0001
+       → 000 0001  ++  001 0110 (drop the msb and reverse the groups of 7 bits)
+       → 10010110
+       → 2 + 4 + 16 + 128 = 150</pre>
+<h2 id="types">More Value Types</h2>
+<h3>Signed Integers</h3>
+<p>As you saw in the previous section, all the protocol buffer types associated with wire type 0 are encoded as varints.  However, there is an important difference between the signed int types (<code>sint32</code> and <code>sint64</code>) and the "standard" int types (<code>int32</code> and <code>int64</code>) when it comes to encoding negative numbers. If you use <code>int32</code> or <code>int64</code> as the type for a negative number, the resulting varint is <em>always ten bytes long</em> &#8211; it is, effectively, treated like a very large unsigned integer.  If you use one of the signed types, the resulting varint uses ZigZag encoding, which is much more efficient.
+<p>ZigZag encoding maps signed integers to unsigned integers so that numbers with a small <em>absolute value</em> (for instance, -1) have a small varint encoded value too. It does this in a way that "zig-zags" back and forth through the positive and negative integers, so that -1 is encoded as 1, 1 is encoded as 2, -2 is encoded as 3, and so on, as you can see in the following table:
+<table width="50%" border=1>
+<tr><th>Signed Original</th><th>Encoded As</th></tr>
+<tr><td>0</td><td>0</td><tr>
+<tr><td>-1</td><td>1</td><tr>
+<tr><td>1</td><td>2</td><tr>
+<tr><td>-2</td><td>3</td><tr>
+<tr><td>2147483647</td><td>4294967294</td><tr>
+<tr><td>-2147483648</td><td>4294967295</td><tr>
+</table>
+<p>In other words, each value <code>n</code> is encoded using
+<pre class="prettyprint">(n << 1) ^ (n >> 31)</pre>
+<p>for <code>sint32</code>s, or
+<pre class="prettyprint">(n << 1) ^ (n >> 63)</pre>
+<p>for the 64-bit version.
+<p>Note that the second shift &#8211; the <code>(n >> 31)</code> part &#8211; is an arithmetic shift.  So, in other words, the result of the shift is either a number that is all zero bits (if <code>n</code> is positive) or all one bits (if <code>n</code> is negative).
+<p>When the <code>sint32</code> or <code>sint64</code> is parsed, its value is decoded back to the original, signed version.
+<h3>Non-varint Numbers</h3>
+<p>Non-varint numeric types are simple &#8211; <code>double</code> and <code>fixed64</code> have wire type 1, which tells the parser to expect a fixed 64-bit lump of data; similarly <code>float</code> and <code>fixed32</code> have wire type 5, which tells it to expect 32 bits.  In both cases the values are stored in little-endian byte order.
+<h3>Strings</h3>
+<p>A wire type of 2 (length-delimited) means that the value is a varint encoded length followed by the specified number of bytes of data.
+<pre>message Test2 {
+  required string b = 2;
+}</pre>
+<p>Setting the value of b to "testing" gives you:
+<pre>12 07 <font color="red">74 65 73 74 69 6e 67</font></pre></pre>
+<p>The red bytes are the UTF8 of "testing". The key here is 0x12 → tag = 2, type = 2. The length varint in the value is 7 and lo and behold, we find seven bytes following it &#8211; our string.
+<h2 id="embedded">Embedded Messages</h2>
+<p>Here's a message definition with an embedded message of our example type, Test1:
+<pre>message Test3 {
+  required Test1 c = 3;
+}</pre>
+<p>And here's the encoded version, again with the Test1's <code>a</code> field set to 150:
+<pre> 1a 03 <font color="red">08 96 01</font></pre>
+<p>As you can see, the last three bytes are exactly the same as our first example (<code>08 96 01</code>), and they're preceded by the number 3 &#8211; embedded messages are treated in exactly the same way as strings (wire type = 2).
+<h2 id="optional">Optional And Repeated Elements</h2>
+<p>If your message definition has <code>repeated</code> elements (without the <code>[packed=true]</code> option), the encoded message has zero or more key-value pairs with the same tag number.  These repeated values do not have to appear consecutively; they may be interleaved with other fields.  The order of the elements with respect to each other is preserved when parsing, though the ordering with respect to other fields is lost.
+<p>If any of your elements are <code>optional</code>, the encoded message may or may not have a key-value pair with that tag number.
+<p>Normally, an encoded message would never have more than one instance of an <code>optional</code> or <code>required</code> field.  However, parsers are expected to handle the case in which they do.  For numeric types and strings, if the same value appears multiple times, the parser accepts the <i>last</i> value it sees.  For embedded message fields, the parser merges multiple instances of the same field, as if with the <code>Message::MergeFrom</code> method &#8211; that is, all singular scalar fields in the latter instance replace those in the former, singular embedded messages are merged, and repeated fields are concatenated.  The effect of these rules is that parsing the concatenation of two encoded messages produces exactly the same result as if you had parsed the two messages separately and merged the resulting objects.  That is, this:
+<pre>MyMessage message;
+message.ParseFromString(str1 + str2);</pre>
+<p>is equivalent to this:
+<pre>MyMessage message, message2;
+message.ParseFromString(str1);
+message2.ParseFromString(str2);
+message.MergeFrom(message2);</pre>
+<p>This property is occasionally useful, as it allows you to merge two messages even if you do not know their types.
+
+<h3>Packed Repeated Fields</h3>
+
+<p>Version 2.1.0 introduced packed repeated fields, which are declared like repeated fields but with the special <code>[packed=true]</code> option.  These function like repeated fields, but are encoded differently.  A packed repeated field containing zero elements does not appear in the encoded message.  Otherwise, all of the elements of the field are packed into a single key-value pair with wire type 2 (length-delimited).  Each element is encoded the same way it would be normally, except without a tag preceding it.
+
+<p>For example, imagine you have the message type:
+<pre>message Test4 {
+  repeated int32 d = 4 [packed=true];
+}</pre>
+
+<p>Now let's say you construct a <code>Test4</code>, providing the values 3, 270, and 86942 for the repeated field <code>d</code>.  Then, the encoded form would be:
+<pre>22        // tag (field number 4, wire type 2)
+06        // payload size (6 bytes)
+03        // first element (varint 3)
+8E 02     // second element (varint 270)
+9E A7 05  // third element (varint 86942)</pre>
+
+<p>Only repeated fields of primitive numeric types (types which use the varint, 32-bit, or 64-bit wire types) can be declared "packed".</p>
+
+<p>Note that although there's usually no reason to encode more than one key-value pair for a packed repeated field, encoders must be prepared to accept multiple key-value pairs.  In this case, the payloads should be concatenated.  Each pair must contain a whole number of elements.
+
+<h2 id="order">Field Order</h2>
+<p>While you can use field numbers in any order in a <code>.proto</code>, when a message is serialized its known fields should be written sequentially by field number, as in the provided C++, Java, and Python serialization code.  This allows parsing code to use optimizations that rely on field numbers being in sequence.  However, protocol buffer parsers must be able to parse fields in any order, as not all messages are created by simply serializing an object &#8211; for instance, it's sometimes useful to merge two messages by simply concatenating them.
+<p>If a message has <a href="/protocol-buffers/docs/proto.html#updating">unknown fields</a>, the current Java and C++ implementations write them in arbitrary order after the sequentially-ordered known fields.  The current Python implementation does not track unknown fields.
+  
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Sauf indication contraire, le contenu de cette page est régi par une licence <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>, et les échantillons de code sont régis par une licence <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. Pour plus de détails, consultez nos <a href="/site-policies">règles relatives aux sites</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2014-09-03T22:43:14.171340" id="gc-content-last-updated">Last updated septembre 3, 2014.</div>
+
+</div>
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+      
+        
+          
+        
+      
+
+      
+  
+       <!-- not (if site.theme == 'maia' or site.theme == 'maia-cloud') -->
+      <div id="gc-footer-container">
+        <footer id="gc-footer">
+          
+
+
+
+
+        <div id="maia-footer-local" class="footer-local">
+          <div id="footer-top" class="maia-aux">
+            <div class="footer-top-wrap">
+
+             <div class="search-wrap new_left">
+               <div class="dev-wrap new_left">
+                 <a href="/"><img src="/_static/images/v2/developers-logo.png" /></a>
+               </div>
+               <form class="search new_left" action="/search/results" method="GET" id="footer-search">
+                 <div id="searchbox" class="searchbox new_left">
+                   <input type="text" name="q" class="q" id="q" value="" placeholder="Search" autocomplete="off">
+                 </div>
+                 <button id="search-button" class="button button-blue big new_left">
+                   <img src="/_static/images/v2/search.png" alt="Search">
+                 </button>
+               </form>
+             </div>
+             <div class="plus-wrap new_left">
+               <div class="plus">
+                 <!-- Place this tag where you want the widget to render. -->
+                 <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/111395306401981598462" data-rel="publisher"></div>
+                 <!-- Place this tag after the last widget tag. -->
+                 <script type="text/javascript">
+                   (function() {
+                     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                     po.src = 'https://apis.google.com/js/platform.js';
+                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                   })();
+                 </script>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      <div id="footer-list" class="maia-aux">
+    <div class="footer-list-wrap  maia-cols">
+      <div class="maia-col-3">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/products/">Products</a></li>
+          <li><a href="/showcase/">Showcase</a></li>
+          <li><a href="/events/">Events</a></li>
+          <li><a href="/community/">Communities</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="http://googledevelopers.blogspot.com/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Blog Link">Blog</a></li>
+          <li><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer G+ Link">Google+ Community</a></li>
+          <li><a href="http://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">YouTube Channel</a></li>
+          <li><a class="google-feedback" data-p="81425" data-b="Documentation"  data-v="devsite-20141217-r00-rc00.default" href="">Signaler un problème</a></li>
+          <li><a href="/careers/">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="/groups/">Groups</a></li>
+          <li><a href="/experts/">Experts</a></li>
+          <li><a href="/startups/">Startups</a></li>
+          <li><a href="/women-techmakers/">Women Techmakers</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Top Products</h4>
+        <ul class="top-prod-1 left">
+          <li><a href="/advertise/">Ads</a></li>
+          <li><a href="/analytics/">Analytics</a></li>
+          <li><a href="https://developer.android.com/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Android Link">Android</a></li>
+          <li><a href="/cast/">Cast</a></li>
+          <li><a href="/chrome/">Chrome</a></li>
+          <li><a href="https://cloud.google.com/docs/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">Cloud</a></li>
+        </ul>
+        <ul class="top-prod-2 left">
+          <li><a href="/glass/">Glass</a></li>
+          <li><a href="/google-apps/">Google Apps</a></li>
+          <li><a href="/+/">Google+</a></li>
+          <li><a href="/maps/">Maps</a></li>
+          <li><a href="/commerce/wallet/">Wallet</a></li>
+          <li><a href="/youtube/">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-LOCAL -->
+
+<div id="maia-footer-global" class="footer-global">
+  <div class="maia-aux">
+    <span id="terms">
+      <a href="/site-terms/">Terms of Use</a>
+    </span>
+    <span class="pipe">
+    </span>
+    <span id="privacy">
+      <a href="http://www.google.com/intl/en/privacy/" class="gc-analytics-event"
+      data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy Policy</a>
+    </span>
+
+    
+    <div id="gc-language" class="new_right">
+    <ul>
+      <li>
+        <form id="setlang" action="/i18n/setlang/" method="post">
+          <input type="hidden" name="xsrf_token" value="i8LTNGDbAqM7X5Dvzl9xyjoxNDE4OTY3ODIzOTcyNjUw" />
+          <select id="footer_language" name="language">
+            <option value="ar"
+                >
+                العربيّة
+              </option><option value="bg"
+                >
+                български
+              </option><option value="ca"
+                >
+                català
+              </option><option value="zh-cn"
+                >
+                简体中文
+              </option><option value="zh-tw"
+                >
+                繁體中文
+              </option><option value="hr"
+                >
+                Hrvatski
+              </option><option value="cs"
+                >
+                česky
+              </option><option value="da"
+                >
+                dansk
+              </option><option value="nl"
+                >
+                Nederlands
+              </option><option value="en"
+                >
+                English
+              </option><option value="fa"
+                >
+                فارسی
+              </option><option value="fi"
+                >
+                suomi
+              </option><option value="fr"
+                 selected="selected" >
+                français
+              </option><option value="de"
+                >
+                Deutsch
+              </option><option value="el"
+                >
+                Ελληνικά
+              </option><option value="he"
+                >
+                עברית
+              </option><option value="hi"
+                >
+                Hindi
+              </option><option value="hu"
+                >
+                Magyar
+              </option><option value="id"
+                >
+                Bahasa Indonesia
+              </option><option value="it"
+                >
+                italiano
+              </option><option value="ja"
+                >
+                日本語
+              </option><option value="ko"
+                >
+                한국어
+              </option><option value="lv"
+                >
+                latviešu
+              </option><option value="lt"
+                >
+                Lithuanian
+              </option><option value="nb"
+                >
+                norsk (bokmål)
+              </option><option value="nn"
+                >
+                norsk (nynorsk)
+              </option><option value="pl"
+                >
+                polski
+              </option><option value="pt-br"
+                >
+                Português Brasileiro
+              </option><option value="pt"
+                >
+                Português
+              </option><option value="ro"
+                >
+                Română
+              </option><option value="ru"
+                >
+                Русский
+              </option><option value="sr"
+                >
+                српски
+              </option><option value="sk"
+                >
+                slovenský
+              </option><option value="sl"
+                >
+                Slovenščina
+              </option><option value="es"
+                >
+                español
+              </option><option value="sv"
+                >
+                svenska
+              </option><option value="th"
+                >
+                Thai
+              </option><option value="tr"
+                >
+                Türkçe
+              </option><option value="uk"
+                >
+                Українська
+              </option><option value="vi"
+                >
+                Vietnamese
+              </option>
+          </select>
+        </form>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-GLOBAL -->
+<script src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" async defer></script>
+<script type="text/javascript">
+    // Add the handlers once the document has loaded.
+    $(document).ready(function() {
+      devsite.devsite.handlePlusBadgeResize($('#plusbadge'), $('#homephoto'));
+    });
+  </script>
+
+        </footer>
+      </div>
+      
+      
+  
+
+    </div>
+    <div id="search-autocomplete" class="search-results search-autocomplete" style="display:none"></div>
+    <script type="text/javascript" async="" defer="" src="//www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript" src="https://developers.google.com/_static2/2598345234/jsi18n/?hl=fr"></script>
+    <script src="https://developers.google.com/_static/2598345234/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, 'devsite',
+            '[]', '',
+            'fr', true,
+            '2598345234', 'corentin.jechoux.pro@gmail.com',
+            false);
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if (navigator.userAgent.match(/msie/i)) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl875;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script>
+    <noscript>
+    <iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl875;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    
+
+    <noscript>
+      <div style="display:none;">
+        <img style="display:none;" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+});
+</script>
+<script src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" async defer></script>
+
+
+
+
+  </div><!-- END DIV.MAIA-MAX -->
+  </body>
+
+  
+</html>
